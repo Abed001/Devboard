@@ -12,10 +12,28 @@ const githubRoutes = require('./routes/github'); // ← Add this
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const allowedOrigins = [
+  'https://devboard-client-zqwd.onrender.com',
+  "http://localhost:5173"
+];
 
-const allowedOrigins = ['https://devboard-client-zqwd.onrender.com', "http://localhost:5173"]
-app.use(express.json());
-
+// --- V V V V V V V V V V V V V V V V V V V V V V V V V V V V V ---
+// 2. Define the configuration for the cors middleware
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Check if the requesting origin is in the allowed list
+    // || !origin is to allow requests with no origin header (like server-to-server or file protocols)
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  // IMPORTANT: Include credentials if your frontend sends cookies (like a session ID for login)
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow common methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Explicitly allow common headers
+};
 // Test route
 app.get('/', (req, res) => {
   res.json({ message: 'DevBoard API is running!' });
