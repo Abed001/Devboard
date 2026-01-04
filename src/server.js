@@ -13,7 +13,7 @@ const githubRoutes = require('./routes/github'); // ← Add this
 const app = express();
 const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
-  'https://devboard-client-zqwd.onrender.com',
+  'https://stellular-bubblegum-3611bf.netlify.app/',
   "http://localhost:5173"
 ];
 
