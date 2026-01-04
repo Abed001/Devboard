@@ -34,6 +34,11 @@ const corsOptions = {
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow common methods
   allowedHeaders: ['Content-Type', 'Authorization'] // Explicitly allow common headers
 };
+
+app.use(cors(corsOptions));
+// --- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ---
+
+app.use(express.json());
 // Test route
 app.get('/', (req, res) => {
   res.json({ message: 'DevBoard API is running!' });
