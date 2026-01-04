@@ -12,6 +12,7 @@ const githubRoutes = require('./routes/github'); // ← Add this
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+/*
 const allowedOrigins = [
   'https://devboard-client-zqwd.onrender.com',
   "http://localhost:5173"
@@ -34,8 +35,8 @@ const corsOptions = {
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow common methods
   allowedHeaders: ['Content-Type', 'Authorization'] // Explicitly allow common headers
 };
-
-app.use(cors(corsOptions));
+*/
+app.use(cors());
 // --- ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ---
 
 app.use(express.json());
