@@ -13,7 +13,7 @@ const githubRoutes = require('./routes/github'); // ← Add this
 const app = express();
 const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
-  'https://stellular-bubblegum-3611bf.netlify.app/',
+  'https://stellular-bubblegum-3611bf.netlify.app',
   "http://localhost:5173"
 ];
 
