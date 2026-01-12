@@ -31,7 +31,7 @@ const corsOptions = {
   },
   // IMPORTANT: Include credentials if your frontend sends cookies (like a session ID for login)
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow common methods
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'], // Explicitly allow common methods
   allowedHeaders: ['Content-Type', 'Authorization'] // Explicitly allow common headers
 };
 
